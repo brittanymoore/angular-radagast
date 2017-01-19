@@ -1,7 +1,7 @@
 {
-    "name": "vertex",
+    "name": "angular-radagast",
     "version": "0.0.1",
-    "description": "seed project for angular 2",
+    "description": "wizard component for angular",
     "scripts": {
         "install:verbose": "npm install --loglevel verbose",
         "compile:aot": "./node_modules/.bin/ngc -p ./tsconfig.aot.json",
@@ -79,6 +79,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/brittanymoore/vertex.git"
+        "url": "git+https://github.com/brittanymoore/angular-radagast.git"
     }
 }
