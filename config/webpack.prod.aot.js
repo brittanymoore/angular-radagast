@@ -11,7 +11,7 @@ const API_URL = process.env.API_URL = common.baseUrl();
 // Webpack Config
 var webpackConfig = {
   entry: {
-    'main': './src/main.aot.ts'
+    'main': './test/main.aot.ts'
   },
 
   output: {
@@ -45,7 +45,7 @@ var webpackConfig = {
     }),
     new ngtools.AotPlugin({
       tsConfigPath: './tsconfig.aot.json',
-      entryModule: './src/app/app.module#AppModule'
+      entryModule: __dirname + './../test/app/app.module#AppModule'
     })
   ],
 

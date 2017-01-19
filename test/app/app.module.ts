@@ -6,10 +6,6 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { RadagastModule } from './../../src/radagast/radagast.module';
 
-/**
- * Application entry module.
- */
-
 @NgModule({
     imports: [
         BrowserModule,

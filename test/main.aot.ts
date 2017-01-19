@@ -1,7 +1,7 @@
 import './vendor';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModuleNgFactory } from './../compiled-aot/src/app/app.module.ngfactory';
+import { AppModuleNgFactory } from './../compiled-aot/test/app/app.module.ngfactory';
 import { enableProdMode } from '@angular/core';
 
 if (process.env.ENV !== 'development') {

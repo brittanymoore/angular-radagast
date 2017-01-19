@@ -10,7 +10,7 @@ const API_URL = process.env.API_URL = common.baseUrl();
 // Webpack Config
 var webpackConfig = {
   entry: {
-    'main': './src/main.ts'
+    'main': './test/main.ts'
     //'vendor': './src/vendor.ts'
   },
 

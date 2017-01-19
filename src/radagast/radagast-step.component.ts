@@ -20,9 +20,9 @@ export class RadagastStepComponent implements OnInit, OnDestroy {
         this.subscription = radagastService.stepMove$.subscribe(
             index => {
                 if (this.order == index) {
-                    this.stepVisible = true;
+                    //this.stepVisible = true;
                 } else {
-                    this.stepVisible = false;
+                    //this.stepVisible = false;
                 }
             }
         )
