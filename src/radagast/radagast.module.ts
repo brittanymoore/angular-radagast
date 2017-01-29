@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';  
 import { BrowserModule } from '@angular/platform-browser';
 
-import { RadagastComponent } from './radagast.component';
-import { RadagastStepComponent } from './radagast-step.component';
+import { RadagastComponent } from './components/radagast.component';
+import { RadagastStepComponent } from './components/radagast-step.component';
 
 @NgModule({
   imports: [

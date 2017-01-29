@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Input } from '@angular/core';
 import { AfterViewInit } from '@angular/core';
 
-import { RadagastService } from './radagast.service';
+import { RadagastService } from './../radagast.service';
 import { RadagastStepComponent } from './radagast-step.component';
 
 @Component({

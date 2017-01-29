@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit, OnDestroy, Input } from '@angular/core';
 
-import { RadagastService } from './radagast.service';
+import { RadagastService } from './../radagast.service';
 import { Subscription }   from 'rxjs/Subscription';
 
 @Component({
