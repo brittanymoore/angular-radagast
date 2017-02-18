@@ -2,16 +2,16 @@ import { Directive, HostListener } from '@angular/core';
 import { RadagastService } from './../radagast.service';
 
 @Directive({ 
-    selector: '[radagast-next]'
+    selector: '[radagast-prev]'
 })
-export class RadagastNextDirective {
+export class RadagastPrevDirective {
 
     constructor(
         private radagastService:RadagastService
     ) { }
 
     @HostListener('click') onclick():void {
-        this.radagastService.stepForward();
+        this.radagastService.stepBackward();
     }
 
 }
