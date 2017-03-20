@@ -7,6 +7,36 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 exports.apiUrl = ""; // can be used to prepend a URL to web service calls without repetition
 exports.config = {
 
+    entry: {
+        'main': './test/main.ts',
+    },
+
+    output: {
+        publicPath: '',
+        filename: '[name].bundle.js',
+        sourceMapFilename: '[name].map',
+        chunkFilename: '[id].chunk.js'
+    },
+
+    resolve: {
+        extensions: [ '.ts', '.js' ],
+        modules: [ path.resolve(__dirname, './../node_modules') ]
+    },
+
+    module: {
+        loaders: [
+            {
+                test: /\.ts$/,
+                loaders: [
+                    'awesome-typescript-loader?tsconfig=./tsconfig.json',
+                    'angular2-template-loader'
+                ]
+            },
+            { test: /\.css$/, loaders: ['to-string-loader', 'css-loader'] },
+            { test: /\.html$/, loader: 'raw-loader' }
+        ]
+    },    
+
     plugins: [
         new webpack.ContextReplacementPlugin(
             // The (\\|\/) piece accounts for path separators in *nix and Windows
@@ -22,33 +52,9 @@ exports.config = {
         })
     ],
 
-    devtool: 'inline-source-map', 
-
-    output: {
-        filename: '[name].bundle.js',
-        sourceMapFilename: '[name].map',
-        chunkFilename: '[id].chunk.js'
-    },
-
-    resolve: {
-        extensions: [ '.ts', '.js' ],
-        modules: [ path.resolve(__dirname, './../node_modules') ]
-    },
-
     devServer: {
         historyApiFallback: true,
-        watchOptions: { aggregateTimeout: 300, poll: 1000 }
-    },
-
-    node: {
-        global: true,
-        crypto: 'empty',
-        __dirname: true,
-        __filename: true,
-        process: true,
-        Buffer: false,
-        clearImmediate: false,
-        setImmediate: false
+        port: 3000,
     }
 
 };

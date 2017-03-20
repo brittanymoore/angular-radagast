@@ -5,8 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RadagastService } from './radagast.service';
 
 // components
-import { RadagastComponent } from './components/radagast.component';
-import { RadagastStepComponent } from './components/radagast-step.component';
+import { RadagastComponent } from './components/radagast/radagast.component';
+import { RadagastStepComponent } from './components/radagast-step/radagast-step.component';
 
 // directives
 import { RadagastNextDirective } from './directives/radagast-next.directive';

@@ -12,18 +12,13 @@ const USE_MOCK = process.env.USE_MOCK = true;
 
 var webpackConfig = {
 
-    entry: {
-        'main': './test/main.ts'
-    },
-
     output: {
-        publicPath: '',
         path: path.resolve(__dirname, './../dist'),
     },
 
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
-            compress: { warnings: false }
+            sourceMap: true
         }),
         new webpack.DefinePlugin({
             'process.env': {
@@ -34,19 +29,7 @@ var webpackConfig = {
         })
     ],
 
-    module: {
-        loaders: [
-            {
-                test: /\.ts$/,
-                loaders: [
-                    'awesome-typescript-loader?tsconfig=./tsconfig.json',
-                    'angular2-template-loader'
-                ]
-            },
-            { test: /\.css$/, loaders: ['to-string-loader', 'css-loader'] },
-            { test: /\.html$/, loader: 'raw-loader' }
-        ]
-    }
+    devtool: 'source-map'
 
 };
 
