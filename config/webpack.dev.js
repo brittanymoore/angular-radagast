@@ -14,19 +14,41 @@ var webpackConfig = {
 
     output: {
         path: path.resolve(__dirname, './../dev'),
+        pathinfo: true // helps with devtool: eval
+    },
+
+    devtool: 'eval', 
+
+    module: {
+        rules: [
+            { test: /\.ts$/, use: [ 'awesome-typescript-loader', 'angular2-template-loader', 'angular-router-loader' ] }
+        ]
     },
 
     plugins: [
+
         new webpack.DefinePlugin({
             'process.env': {
                 'ENV': JSON.stringify(ENV),
                 'API_URL': JSON.stringify(API_URL),
                 'USE_MOCK': JSON.stringify(USE_MOCK)
             }
-        })
+        }),
+
+        new webpack.ContextReplacementPlugin(
+            // The (\\|\/) piece accounts for path separators in *nix and Windows
+            /angular(\\|\/)core(\\|\/)@angular/,
+            path.resolve(__dirname, './../src'),
+            {
+                // your Angular Async Route paths relative to this root directory
+            }
+        )
+
     ],
 
-    devtool: 'inline-source-map'
+    devServer: {
+        contentBase: './dev'
+    }
 
 };
 

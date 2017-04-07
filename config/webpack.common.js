@@ -4,11 +4,11 @@ var path = require('path');
 // plugins
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-exports.apiUrl = ""; // can be used to prepend a URL to web service calls without repetition
+exports.apiUrl = ""; // can be used to prepend a static URL to web service calls
 exports.config = {
 
     entry: {
-        'main': './test/main.ts',
+        'main': './test/main.ts'
     },
 
     output: {
@@ -24,37 +24,34 @@ exports.config = {
     },
 
     module: {
-        loaders: [
-            {
-                test: /\.ts$/,
-                loaders: [
-                    'awesome-typescript-loader?tsconfig=./tsconfig.json',
-                    'angular2-template-loader'
+        rules: [
+            { 
+                test: /\.less$/, use: [ 
+                    'exports-loader?module.exports.toString()',
+                    'css-loader?sourceMap=false&importLoaders=1&minimize=true',
+                    'less-loader?sourceMap=false'
                 ]
+            },            
+            { 
+                test: /\.css$/, use: [
+                    'exports-loader?module.exports.toString()',
+                    'css-loader?sourceMap=false&importLoaders=1&minimize=true',
+                ] 
             },
-            { test: /\.css$/, loaders: ['to-string-loader', 'css-loader'] },
             { test: /\.html$/, loader: 'raw-loader' }
         ]
-    },    
+    },
 
     plugins: [
-        new webpack.ContextReplacementPlugin(
-            // The (\\|\/) piece accounts for path separators in *nix and Windows
-            /angular(\\|\/)core(\\|\/)src(\\|\/)linker/,
-            path.resolve(__dirname, './../src'),
-            {
-                // your Angular Async Route paths relative to this root directory
-            }
-        ),
         new HtmlWebpackPlugin({
-            title: 'Radagast',
+            title: 'My App',
             template: './config/index.template.ejs'
         })
     ],
 
     devServer: {
         historyApiFallback: true,
-        port: 3000,
+        port: 3000
     }
 
 };

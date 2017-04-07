@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { trigger, transition, style, animate } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations';
 import { OnInit, OnDestroy, Input, ChangeDetectorRef } from '@angular/core';
 
 import { RadagastService } from './../../radagast.service';
@@ -7,8 +7,8 @@ import { Subscription }   from 'rxjs/Subscription';
 
 @Component({
     selector: 'radagast-step',
-    templateUrl: './radagast-step.html',
-    styleUrls: ['./radagast-step.css'],
+    templateUrl: './radagast-step.component.html',
+    styleUrls: ['./radagast-step.component.less'],
     animations: [
         trigger(
             'enterAnimation', [

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';  
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // services
 import { RadagastService } from './radagast.service';
@@ -14,7 +15,8 @@ import { RadagastPrevDirective } from './directives/radagast-prev.directive';
 
 @NgModule({
     imports: [
-        BrowserModule
+        BrowserModule,
+        BrowserAnimationsModule
     ],
     declarations: [
         RadagastComponent,

@@ -6,8 +6,8 @@ import { RadagastService } from './../../radagast.service';
 
 @Component({
     selector: 'radagast',
-    templateUrl: './radagast.html',
-    styleUrls: [ './radagast.css' ],
+    templateUrl: './radagast.component.html',
+    styleUrls: [ './radagast.component.less' ],
     providers: [ RadagastService ]
 })
 export class RadagastComponent implements AfterViewInit, OnInit {
