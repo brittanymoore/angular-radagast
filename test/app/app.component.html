@@ -1,11 +1,25 @@
-<h1>Radagast (Test)</h1>
+<main>
 
-Hello, world!
+    <div class="container">
 
-This is the wizard component:
-<radagast>
-    <radagast-step [order]="1" rname="step1">test1</radagast-step>
-    <radagast-step [order]="2" rname="step2">test2</radagast-step>
-    <radagast-step [order]="3" rname="step3">test3</radagast-step>
-</radagast>
+        <h1>Radagast Wizard Demo</h1>
 
+        <rad-wizard>
+            <div>
+                <button [beforeMove]="sampleBeforeMove" radPrevious>Previous</button>
+                <button radNext>Next</button>
+            </div>
+            <rad-wizard-step [stepOrder]="1" stepName="step1">
+                test step 1
+            </rad-wizard-step>
+            <rad-wizard-step [stepOrder]="2" stepName="step2">
+                test step 2
+            </rad-wizard-step>
+            <rad-wizard-step [stepOrder]="3" stepName="step3">
+                test step 3      
+            </rad-wizard-step>
+        </rad-wizard>
+
+    </div>
+
+</main>

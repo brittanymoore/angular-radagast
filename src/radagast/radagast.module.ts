@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';  
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -6,12 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RadagastService } from './radagast.service';
 
 // components
-import { RadagastComponent } from './components/radagast/radagast.component';
-import { RadagastStepComponent } from './components/radagast-step/radagast-step.component';
+import { WizardComponent } from './components/wizard/wizard.component';
+import { WizardStepComponent } from './components/wizard-step/wizard-step.component';
 
 // directives
-import { RadagastNextDirective } from './directives/radagast-next.directive';
-import { RadagastPrevDirective } from './directives/radagast-prev.directive';
+import { WizardNextDirective } from './directives/wizard-next.directive';
+import { WizardPrevDirective } from './directives/wizard-prev.directive';
 
 @NgModule({
     imports: [
@@ -19,16 +19,16 @@ import { RadagastPrevDirective } from './directives/radagast-prev.directive';
         BrowserAnimationsModule
     ],
     declarations: [
-        RadagastComponent,
-        RadagastStepComponent,
-        RadagastNextDirective,
-        RadagastPrevDirective
+        WizardComponent,
+        WizardStepComponent,
+        WizardNextDirective,
+        WizardPrevDirective
     ],
     exports: [
-        RadagastComponent,
-        RadagastStepComponent,
-        RadagastNextDirective,
-        RadagastPrevDirective
+        WizardComponent,
+        WizardStepComponent,
+        WizardNextDirective,
+        WizardPrevDirective
     ]
 })
-export class RadagastModule { } 
+export class RadagastModule { }

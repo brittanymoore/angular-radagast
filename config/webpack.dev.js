@@ -40,7 +40,7 @@ var webpackConfig = {
             /angular(\\|\/)core(\\|\/)@angular/,
             path.resolve(__dirname, './../src'),
             {
-                // your Angular Async Route paths relative to this root directory
+                // Angular Async Route paths relative to this root directory
             }
         )
 

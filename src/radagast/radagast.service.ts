@@ -2,48 +2,60 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
+import Step from './step';
+
 @Injectable()
 export class RadagastService {
 
-    private stepCount: number = 0;
-    private currentStep: number = 1;
-    private steps: Array<Object> = [];
-
-    private stepMoveSource: Subject<number> = new Subject<number>();
+    public stepMoveSource: Subject<number> = new Subject<number>();
     public stepMove$: Observable<number> = this.stepMoveSource.asObservable();
-    private stepAddSource: Subject<Array<Object>> = new Subject<Array<Object>>();
-    public stepAdd$: Observable<Array<Object>> = this.stepAddSource.asObservable();
+    public stepsSource: Subject<Step[]> = new Subject<Step[]>();
+    public steps$: Observable<Step[]> = this.stepsSource.asObservable();
 
-    addStep(obj: Object): void {
-        this.steps.push(obj);
+    private stepCount: number = 0;
+    private activeStep: number = 1;
+    private steps: Step[] = [];
+
+    public addStep(step: Step): void {
+        this.steps.push(step);
         this.stepCount++;
         this.updateSteps();
     }
 
-    updateSteps(): void {
-        this.stepAddSource.next(this.steps);
+    public updateSteps(): void {
+        this.stepsSource.next(this.steps);
     }
 
-    goToCurrentStep(): void {
-        this.goToStep(this.currentStep);
+    public goToActiveStep(): void {
+        this.goToStep(this.activeStep);
     }
 
-    goToStep(index: number): void {
+    public goToStep(index: number): void {
+        this.activeStep = index;
+        this.setActiveStep();
         this.stepMoveSource.next(index);
+        this.stepsSource.next(this.steps);
     }
 
-    stepForward(): void {
-        if (this.currentStep < this.stepCount) {
-            this.currentStep++;
-            this.goToCurrentStep();
-        }        
+    public stepForward(): void {
+        if (this.activeStep < this.stepCount) {
+            this.activeStep++;
+            this.goToActiveStep();
+        }
     }
 
-    stepBackward(): void {
-        if (this.currentStep > 1) {
-            this.currentStep--;
-            this.goToCurrentStep();
-        }        
+    public stepBackward(): void {
+        if (this.activeStep > 1) {
+            this.activeStep--;
+            this.goToActiveStep();
+        }
+    }
+
+    public setActiveStep(): void {
+        for (let i = 0; i < this.steps.length; i++) {
+            let step = this.steps[i];
+            step.isActive = (step.order === this.activeStep);
+        }
     }
 
 }
