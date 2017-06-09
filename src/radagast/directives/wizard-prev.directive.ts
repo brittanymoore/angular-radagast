@@ -13,7 +13,7 @@ export class WizardPrevDirective {
     ) { }
 
     @HostListener('click') onclick(): void {
-        let passThrough = (this.beforeMove) ? this.beforeMove() : true;
+        const passThrough = (this.beforeMove) ? this.beforeMove() : true;
         if (passThrough) {
             this.radagastService.stepBackward();
         }

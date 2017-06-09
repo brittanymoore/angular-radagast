@@ -10,7 +10,7 @@ export class RadagastService {
     public stepMoveSource: Subject<number> = new Subject<number>();
     public stepMove$: Observable<number> = this.stepMoveSource.asObservable();
     public stepsSource: Subject<Step[]> = new Subject<Step[]>();
-    public steps$: Observable<Step[]> = this.stepsSource.asObservable();
+    public steps$: Observable<Step[]> = new Subject<Step[]>().asObservable();
 
     private stepCount: number = 0;
     private activeStep: number = 1;
@@ -53,7 +53,7 @@ export class RadagastService {
 
     public setActiveStep(): void {
         for (let i = 0; i < this.steps.length; i++) {
-            let step = this.steps[i];
+            const step = this.steps[i];
             step.isActive = (step.order === this.activeStep);
         }
     }

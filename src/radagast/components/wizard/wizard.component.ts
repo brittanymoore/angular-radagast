@@ -2,7 +2,7 @@ import { Component, AfterViewInit, OnInit, OnDestroy, ChangeDetectorRef, ViewEnc
 import { Subscription } from 'rxjs/Subscription';
 
 import { RadagastService } from './../../radagast.service';
-import Step from '../../step';
+import Step from './../../step';
 
 @Component({
     selector: 'rad-wizard',
@@ -27,7 +27,7 @@ export class WizardComponent implements AfterViewInit, OnInit, OnDestroy {
                 this.steps = steps;
                 this.cdRef.detectChanges();
             }
-        );        
+        );
     }
 
     public ngAfterViewInit(): void {
