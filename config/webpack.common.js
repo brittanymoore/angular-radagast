@@ -8,7 +8,8 @@ exports.apiUrl = ""; // can be used to prepend a static URL to web service calls
 exports.config = {
 
     entry: {
-        'main': './test/main.ts'
+        'main': './src/main.ts',
+        'polyfill': './src/polyfill.ts'
     },
 
     output: {

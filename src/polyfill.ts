@@ -1,4 +1,4 @@
-import 'ie-shim'; // Internet Explorer 9 support
+// internet explorer ES6
 import 'core-js/es6/symbol';
 import 'core-js/es6/object';
 import 'core-js/es6/function';
@@ -12,10 +12,11 @@ import 'core-js/es6/array';
 import 'core-js/es6/regexp';
 import 'core-js/es6/map';
 import 'core-js/es6/set';
-import 'core-js/es6/weak-map';
-import 'core-js/es6/weak-set';
-import 'core-js/es6/typed';
+
+// internet explorer @angular/animations
+// import web-animations-js // also requires the web-animations-js dependency
+
+// required
 import 'core-js/es6/reflect';
 import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
-import 'zone.js/dist/long-stack-trace-zone';

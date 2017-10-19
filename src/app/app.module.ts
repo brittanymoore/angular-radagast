@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { RadagastModule } from './../../src/radagast/radagast.module';
+import { RadagastModule } from './radagast/radagast.module';
 
 @NgModule({
     imports: [

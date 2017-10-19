@@ -1,23 +1,26 @@
 module.exports = function (config) {
-  config.set({
-    basePath: '',
-    frameworks: ['jasmine'],
-    files: [
-        { pattern: './karma.test.bundle.js' }
-    ],
-    exclude: [
-    ],
-    preprocessors: {
-        './karma.test.bundle.js': ['webpack', 'sourcemap']
-    },
-    webpack: require('./webpack.dev.js'),
-    reporters: ['spec'],
-    port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: false,
-    browsers: ['Chrome'],
-    singleRun: true,
-    concurrency: Infinity
-  })
+    config.set({
+        basePath: '',
+        browsers: ['Chrome'],        
+        client: {
+            clearContext: false
+        },
+        coverageReporter: {
+            type: 'text'
+        },
+        frameworks: ['jasmine'],
+        files: [
+            { pattern: './karma.test.bundle.js' }
+        ],
+        preprocessors: {
+            './karma.test.bundle.js': ['webpack', 'sourcemap']
+        },
+        reporters: ['spec'],
+        specReporter: {
+            failFast: true,
+            suppressErrorSummary: true
+        },
+        singleRun: false,
+        webpack: require('./webpack.dev.js')        
+    });
 }

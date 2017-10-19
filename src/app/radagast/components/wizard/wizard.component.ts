@@ -19,7 +19,7 @@ export class WizardComponent implements AfterViewInit, OnInit, OnDestroy {
     constructor(
         private radagastService: RadagastService,
         private cdRef: ChangeDetectorRef
-    ) { }
+    ) {}
 
     public ngOnInit(): void {
         this.stepsSubscription = this.radagastService.steps$.subscribe(
@@ -36,6 +36,10 @@ export class WizardComponent implements AfterViewInit, OnInit, OnDestroy {
 
     public ngOnDestroy(): void {
         this.stepsSubscription.unsubscribe();
+    }
+
+    public goToStep(step: Step) {
+        this.radagastService.goToStep(step.order);
     }
 
 }

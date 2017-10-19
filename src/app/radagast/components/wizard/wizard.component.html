@@ -1,0 +1,6 @@
+<ul class="wizard-step-headers">
+    <li class="step-header" *ngFor="let step of steps" [ngClass]="{'step-active': step.isActive}" (click)="goToStep(step)">{{step.name}}</li>
+</ul>
+<div class="wizard-content">
+    <ng-content></ng-content>
+</div>

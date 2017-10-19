@@ -10,7 +10,7 @@ export class RadagastService {
     public stepMoveSource: Subject<number> = new Subject<number>();
     public stepMove$: Observable<number> = this.stepMoveSource.asObservable();
     public stepsSource: Subject<Step[]> = new Subject<Step[]>();
-    public steps$: Observable<Step[]> = new Subject<Step[]>().asObservable();
+    public steps$: Observable<Step[]> = this.stepsSource.asObservable();
 
     private stepCount: number = 0;
     private activeStep: number = 1;

@@ -52,6 +52,7 @@ export class WizardStepComponent implements OnInit, OnDestroy {
     public ngOnInit(): void {
         this.subscription = this.radagastService.stepMove$.subscribe(
             (index: number) => {
+                /* uncomment to enable animations
                 this.transitioning = true;
                 if (index > this.currentStep) {
                     this.direction = 'left';
@@ -59,6 +60,7 @@ export class WizardStepComponent implements OnInit, OnDestroy {
                     this.direction = 'right';
                 }
                 this.cdRef.detectChanges();
+                */
                 this.currentStep = index;
                 this.cdRef.detectChanges();
             });
